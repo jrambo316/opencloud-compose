@@ -55,7 +55,7 @@ services:
       - traefik.http.routers.collaboration.rule=Host(`${WOPISERVER_DOMAIN}`)
 
   collabora:
-    image: collabora/code:25.04.9.4.1
+    image: collabora/code:25.04.10.3.1
     # release notes: https://www.collaboraonline.com/release-notes/
     networks:
       reverse_proxy:
