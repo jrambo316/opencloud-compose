@@ -46,7 +46,7 @@ services:
       - ${OC_CONFIG_DIR:-opencloud-config}:/etc/opencloud
     logging:
       driver: ${LOG_DRIVER:-local}
-    restart: no
+    restart: unless-stopped
     labels:
       - traefik.enable=true
       - traefik.http.routers.collaboration.tls=true
@@ -85,7 +85,7 @@ services:
       - /usr/share/fonts/truetype:/opt/cool/systemplate/usr/share/fonts/truetype/more:ro
     logging:
       driver: ${LOG_DRIVER:-local}
-    restart: no
+    restart: unless-stopped
     entrypoint: ["/bin/bash", "-c"]
     command: ["coolconfig generate-proof-key && /start-collabora-online.sh"]
     healthcheck:
